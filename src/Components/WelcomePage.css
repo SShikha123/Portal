@@ -1,0 +1,52 @@
+.dashboard-container{
+  margin: 0;
+  padding: 0;
+}
+
+.tile-container-row {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px; */
+  width: 100%;
+}
+
+.tiles-box {
+  width: calc(33.33% - 20px);
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px ;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.tiles-pagination button {
+  margin: 0 4px;
+  padding: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 50%;
+  background-color: #d7e86a;
+}
+
+.tiles-pagination button.active {
+  background-color: #90a50c;
+  color: black;
+}
+
+.subscribebtn,
+.usebutton {
+  width: 90px;
+  height: 36px;
+  border-radius: 22.5px;
+  background: #d7e86a;
+  border: none;
+}
+
+.subscribebtn:hover,
+.usebutton:hover {
+  cursor: pointer;
+  background-color: #90a50c;
+}
