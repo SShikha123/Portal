@@ -12,37 +12,56 @@ const RegisterPage = () => {
   };
   const [FormData, setFormData] = useState(initialvalue);
   const [passwordError, setPasswordError] = useState("");
-  // const [isValidEmail, setIsValidEmail] = useState(true);
-  // const [Emailerror, setEmailerror]=useState('');
+  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [Emailerror, setEmailerror] = useState("");
 
   const handleFormFieldChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...FormData, [name]: value });
   };
-
-  // const validateEmail = (inputemail) => {
-  //   const emailRegex = /^[a-zA-Z0-9._-]+@ltimindtree\.com$/;
-  //   setIsValidEmail(emailRegex.test(inputemail));
-  // };
+  const emailRegex = /^[a-zA-Z0-9._-]+@ltimindtree\.com$/;
+  const validateEmail = () => {
+    setIsValidEmail(emailRegex.test(FormData.email));
+  };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // validateEmail(isValidEmail);
+    validateEmail();
+    //password & confirm password should be same to submit the form
     if (FormData.password !== FormData.confirmpassword) {
       setPasswordError("password doesn't match");
       return;
+    } else {
+      setPasswordError("");
     }
-    // if(!isValidEmail){
-    //   setEmailerror('use ltimindtree domain')
-    //   console.error('invalid email')
-    //   return;
-    // }
-    // else{
-    //   console.log('email is valid', isValidEmail)
-     
-    // }
+    //email validation with only one domain
+    if (!emailRegex.test(FormData.email)) {
+      setEmailerror("use ltimindtree domain");
+      return;
+    } else {
+      setEmailerror("");
+    }
     console.log(FormData);
-
+    //password validation
+    const MinLengthofpassword = 10;
+    const uppercaseRegex = /[A-Z]/;
+    const lowercaseRegex = /[a-z]/;
+    const specialCharRegex = /[!@#$%^&*]/;
+    const MathDigit = /\d/;
+    if (
+      FormData.password.length < MinLengthofpassword ||
+      !uppercaseRegex.test(FormData.password) ||
+      !lowercaseRegex.test(FormData.password) ||
+      !specialCharRegex.test(FormData.password) ||
+      !MathDigit.test(FormData.password)
+    ) {
+      setPasswordError(
+        "Password is not strong enough. Use lower char, upper char, digit and special char"
+      );
+      return;
+    } else {
+      setPasswordError("");
+    }
     try {
       const response = await axios.post("", setFormData);
       console.log(response.data);
@@ -51,7 +70,7 @@ const RegisterPage = () => {
     }
     setFormData(initialvalue);
     setPasswordError("");
-    // setEmailerror("");
+    setEmailerror("");
   };
   return (
     <div className="register-container">
@@ -97,6 +116,7 @@ const RegisterPage = () => {
             required
           />
         </label>
+        {Emailerror && <p className="emailerror">{Emailerror}</p>}
         <label>
           Password
           <input
@@ -106,7 +126,6 @@ const RegisterPage = () => {
             onChange={handleFormFieldChange}
             required
           />
-          {/* {Emailerror && <p className="emailerror">{Emailerror}</p>} */}
         </label>
         <label>
           Confirm Password
@@ -119,11 +138,10 @@ const RegisterPage = () => {
           />
         </label>
         {passwordError && <p className="passworderror">{passwordError}</p>}
-        
+
         <button type="submit" className="Submitbtn">
           Register
         </button>
-        {/* {isValidEmail==false && (<p >Invalid domain</p>)} */}
       </form>
     </div>
   );
