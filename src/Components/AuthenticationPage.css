@@ -28,6 +28,7 @@ body {
   border-radius: 5px;
   padding: 20px 40px;
   width: 70%;
+  margin-left: 12%;
 }
 .login-container {
   max-width: 400px;
@@ -36,6 +37,7 @@ body {
   border-radius: 5px;
   padding: 20px 40px;
   width: 70%;
+  margin-left: 12%;
 }
 .form-container {
   display: flex;
@@ -55,7 +57,10 @@ input {
   box-sizing: border-box;
   border-radius: 10px;
 }
-.passworderror{
+.passworderror, .emailerror{
   font-size: 12px;
   color: red;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 1em;
 }

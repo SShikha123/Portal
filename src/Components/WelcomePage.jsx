@@ -25,6 +25,7 @@ const WelcomePage = () => {
       title: "SmartATP",
       imageicon: "",
       description: "Production",
+      tags:"Smart ATP Prod"
     },
     {
       id: 2,
@@ -96,7 +97,7 @@ const WelcomePage = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const tilesPerPage = 6;
-  const totalTiles = 7;
+  // const totalTiles = 7;
   const TotalPages = Math.ceil(Dummydata.length / tilesPerPage);
   const startIndex = (currentPage - 1) * tilesPerPage;
   const endIndex = startIndex + tilesPerPage;

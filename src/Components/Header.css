@@ -1,0 +1,14 @@
+.header-left-container {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 12%;
+  background-color: rgb(65, 8, 118) ;
+  height: 100%;
+  color: white;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.header-left-container >div,.header-left-container >img {
+    margin: 50px 0;
+}

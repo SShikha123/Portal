@@ -1,6 +1,7 @@
 .dashboard-container{
   margin: 0;
   padding: 0;
+  margin-left: 12%;
 }
 
 .tile-container-row {
