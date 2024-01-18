@@ -35,7 +35,7 @@ const WelcomePage = ({Dummydata}) => {
     <div className="dashboard-container">
       <h3> Welcome, name here</h3>
       <div className="tile-container-row">
-        {currentPageitems.map((tiles) => (
+        {currentPageitems?.map((tiles) => (
           <div key={tiles.id} className="tiles-box">
             <img src='' alt='ai logo'/>
             <h2>{tiles.title} </h2>
