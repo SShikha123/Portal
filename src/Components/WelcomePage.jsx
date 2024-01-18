@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./WelcomePage.css";
-const WelcomePage = () => {
+const WelcomePage = ({Dummydata}) => {
   // const [Dummydata, setDummydata] = useState([]);
   // useEffect(() => {
   //   const takedata = async () => {
@@ -19,81 +19,7 @@ const WelcomePage = () => {
   //   takedata();
   // }, []);
   // console.log(Dummydata)
-  const Dummydata = [
-    {
-      id: 1,
-      title: "SmartATP",
-      imageicon: "",
-      description: "Production",
-      tags:"Smart ATP Prod"
-    },
-    {
-      id: 2,
-      title: "ReconSure",
-      imageicon: "",
-      description: "Production",
-    },
-    {
-      id: 3,
-      title: "NaviSource ",
-      imageicon: "",
-      description: "Beta",
-    },
-    {
-      id: 4,
-      title: "SmartATP",
-      imageicon: "",
-      description: "Production",
-    },
-    {
-      id: 5,
-      title: "ReconSure",
-      imageicon: "",
-      description: "Production",
-    },
-    {
-      id: 6,
-      title: "NaviSource ",
-      imageicon: "",
-      description: "Beta",
-    },
-    {
-      id: 7,
-      title: "NaviSource ",
-      imageicon: "",
-      description: "Beta",
-    },
-    {
-      id: 8,
-      title: "SmartATP",
-      imageicon: "",
-      description: "Production",
-    },
-    {
-      id: 9,
-      title: "ReconSure",
-      imageicon: "",
-      description: "Production",
-    },
-    {
-      id: 10,
-      title: "NaviSource ",
-      imageicon: "",
-      description: "Beta",
-    },
-    {
-      id: 11,
-      title: "ReconSure",
-      imageicon: "",
-      description: "Production",
-    },
-    {
-      id: 12,
-      title: "NaviSource ",
-      imageicon: "",
-      description: "Beta",
-    },
-  ];
+ 
 
   const [currentPage, setCurrentPage] = useState(1);
   const tilesPerPage = 6;
@@ -111,6 +37,7 @@ const WelcomePage = () => {
       <div className="tile-container-row">
         {currentPageitems.map((tiles) => (
           <div key={tiles.id} className="tiles-box">
+            <img src='' alt='ai logo'/>
             <h2>{tiles.title} </h2>
             <p>{tiles.description}</p>
             <button className="subscribebtn">Subscribe</button>

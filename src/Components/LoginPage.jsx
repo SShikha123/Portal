@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./AuthenticationPage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const LoginPage = () => {
+  const navigate=useNavigate();
   const initalcredentials = { email: "", password: "" };
   const [logincred, setlogincred] = useState(initalcredentials);
   const handleFormFieldChange = (e) => {
@@ -11,16 +12,17 @@ const LoginPage = () => {
   };
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post("", {logincred});
-      //handle auth token
-      const authToken = response.data.token;
-      console.log("auth success", authToken);
-    } catch (error) {
-      console.error("login failed", error);
-    }
+    // try {
+    //   const response = await axios.post("", {logincred});
+    //   //handle auth token
+    //   const authToken = response.data.token;
+    //   console.log("auth success", authToken);
+    // } catch (error) {
+    //   console.error("login failed", error);
+    // }
     console.log(logincred);
     setlogincred(initalcredentials);
+    navigate('/dashboard')
   };
   return (
     <div className="login-container">

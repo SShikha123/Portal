@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./AuthenticationPage.css";
+import { useNavigate } from "react-router-dom";
 const RegisterPage = () => {
+  const navigate=useNavigate();
   const initialvalue = {
     projectid: "",
     bufield: "",
@@ -71,6 +73,9 @@ const RegisterPage = () => {
     setFormData(initialvalue);
     setPasswordError("");
     setEmailerror("");
+    
+navigate('/')
+    
   };
   return (
     <div className="register-container">
