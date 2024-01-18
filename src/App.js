@@ -4,7 +4,7 @@ import LoginPage from "./Components/LoginPage";
 import RegisterPage from "./Components/RegisterPage";
 import WelcomePage from "./Components/WelcomePage";
 import Header from "./Components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const Demodata = [
@@ -31,77 +31,134 @@ function App() {
     },
     {
       id: 4,
-      title: "SmartATP",
+      title: "Intelligent Warranty Assistant ",
       imageicon: "",
-      description: "Production",
+      description: "Beta",
       tags: "ReconSure ATP Prod",
     },
     {
       id: 5,
-      title: "ReconSure",
+      title: "PO Validator ",
       imageicon: "",
       description: "Production",
       tags: "ReconSure ATP Prod",
     },
     {
       id: 6,
-      title: "NaviSource ",
+      title: "Returns Processing  ",
       imageicon: "",
       description: "Beta",
       tags: "ReconSure ATP Prod",
     },
     {
       id: 7,
-      title: "NaviSource ",
+      title: "Sentiment based Credit Management  ",
       imageicon: "",
       description: "Beta",
-      tags: "ReconSure ATP Prod",
+      tags: "Navi ATP Prod",
     },
     {
       id: 8,
-      title: "SmartATP",
+      title: "ASN processing from email ",
       imageicon: "",
       description: "Production",
       tags: "Smart ATP Prod",
     },
     {
       id: 9,
-      title: "ReconSure",
+      title: "ABAP Coding Assistant ",
       imageicon: "",
       description: "Production",
       tags: "ReconSure ATP Prod",
     },
     {
       id: 10,
-      title: "NaviSource ",
+      title: "Code Visualizer  ",
       imageicon: "",
-      description: "Beta",
+      description: "Production",
       tags: "NaviSource ATP Prod",
     },
     {
       id: 11,
-      title: "ReconSure",
+      title: "Change Impact Analyzer ",
       imageicon: "",
       description: "Production",
       tags: "ReconSure ATP Prod",
     },
     {
       id: 12,
-      title: "NaviSource ",
+      title: "Alert Auto Grouping and Incident creation  ",
       imageicon: "",
-      description: "Beta",
+      description: "Production",
       tags: "Navi ATP Prod",
     },
+    {
+      id: 13,
+      title: "ITSM Insights   ",
+      imageicon: "",
+      description: "Production",
+      tags: "Navi ATP Prod",
+    },
+    {
+      id: 14,
+      title: "DRAKE SAP Assistant for End User  ",
+      imageicon: "",
+      description: "Production",
+      tags: "Navi ATP Prod",
+    },
+    {
+      id: 15,
+      title: "DRAKE Agent Assist  ",
+      imageicon: "",
+      description: "Production",
+      tags: "Navi ATP Prod",
+    },
+    {
+      id: 16,
+      title: "SAP Error Image Analysis ",
+      imageicon: "",
+      description: "Production",
+      tags: "Navi ATP Prod",
+    },
+    {
+      id: 17,
+      title: "Job Runtime and Failure Prediction ",
+      imageicon: "",
+      description: "Production",
+      tags: "Navi ATP Prod",
+    },
+    {
+      id: 18,
+      title: "Operational Report Curator ",
+      imageicon: "",
+      description: "Beta",
+      tags: "AI distribution",
+    },
+    {
+      id: 19,
+      title: "AMS Sentiment Analyzer ",
+      imageicon: "",
+      description: "Beta",
+      tags: "AI distribution",
+    },
+    {
+      id: 20,
+      title: "AMS ITSM Response Composer ",
+      imageicon: "",
+      description: "Beta",
+      tags: "AI distribution",
+    },
   ];
-
   const [datalist, setDatalist] = useState(Demodata);
   const HandleFilterApiData = (inputvalue) => {
-    const filtereddata = datalist.filter((item) =>
+    console.log(inputvalue);
+    const filtereddata = Demodata.filter((item) =>
       item.tags.toLowerCase().includes(inputvalue.toLowerCase())
     );
     inputvalue !== "" ? setDatalist(filtereddata) : setDatalist(Demodata);
-    // console.log(filtereddata, datalist, inputvalue);
+    console.log(filtereddata, datalist, inputvalue);
   };
+  console.log(datalist);
   return (
     <BrowserRouter>
       <Header FilterDatabutton={HandleFilterApiData} />

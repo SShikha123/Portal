@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./Header.css";
 const Header = ({ FilterDatabutton }) => {
-    const [filterinput, setFilterinput] = useState("");
-    const onChnageFiltervalue=(e)=>{
-        setFilterinput(e.target.value);
-        FilterDatabutton(filterinput);
-    
-    }
+  const [filterinput, setFilterinput] = useState("");
+  const onChnageFiltervalue = (e) => {
+    setFilterinput(e.target.value);
+    FilterDatabutton(e.target.value);
+  };
+//   console.log(filterinput)
   //   const [filteredData, setFilteredData] = useState(DummyData);
   return (
     <div className="header-left-container">
